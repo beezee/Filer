@@ -12,7 +12,6 @@ module Filer
       params = self.flex.default_mapping.clone[INDEX]
       params[:settings] = { number_of_replicas: 1,
                             number_of_shards: 4 }
-                            puts params
       Flex.POST("/#{INDEX}", params)
     end
     
