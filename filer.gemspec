@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'filer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "filer"
+  spec.name          = "filing-cabinet"
   spec.version       = Filer::VERSION
   spec.authors       = ["Brian Zeligson"]
   spec.email         = ["brian.zeligson@gmail.com"]
