@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "configliere"
   spec.add_dependency "notifier"
   spec.add_dependency "aws-sdk"
+  spec.add_dependency "rest-client"
   spec.add_dependency "flex"
   spec.add_dependency "flex-models"
   spec.add_dependency "fallen"
