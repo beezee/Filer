@@ -18,13 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.5"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "thor"
-  spec.add_development_dependency "configliere"
-  spec.add_development_dependency "notifier"
-  spec.add_development_dependency "aws-sdk"
-  spec.add_development_dependency "flex"
-  spec.add_development_dependency "flex-models"
-  spec.add_development_dependency "fallen"
+  spec.add_dependency "bundler", "~> 1.5"
+  spec.add_dependency "rake"
+  spec.add_dependency "thor"
+  spec.add_dependency "configliere"
+  spec.add_dependency "notifier"
+  spec.add_dependency "aws-sdk"
+  spec.add_dependency "flex"
+  spec.add_dependency "flex-models"
+  spec.add_dependency "fallen"
 end
