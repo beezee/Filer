@@ -29,16 +29,20 @@ module Filer
       @bucket = bucket
     end
 
-    def s3_key(path)
-      filename = File.basename(path)
+    def s3_key(source_dir, path)
+      filename = File.basename(path, '.*')
+      ext = File.extname(path)
+      keypath = path.gsub(source_dir, "").
+              gsub("#{filename}#{ext}", "").
+              gsub(/^\//, "")
       y = Time.now.strftime("%Y")
       m = Time.now.strftime("%m")
       d = Time.now.strftime("%d")
-      "#{y}/#{m}/#{d}/#{filename}"
+      "#{keypath}#{filename}-#{y}-#{m}-#{d}#{ext}"
     end
 
-    def put_file(path)
-      o = bucket.objects[s3_key(path)]
+    def put_file(key, path)
+      o = bucket.objects[key]
       o.write(Pathname.new(path), server_side_encryption: :aes256)
     end
 
@@ -49,8 +53,6 @@ module Filer
       t = Tempfile.new([filename, ext])
       o.read do |ch| t.write(ch) end
       t.close
-      # seems like a race condition
-      sleep 1
       `open #{t.path}`
     end
   end
